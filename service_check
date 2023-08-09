@@ -1,0 +1,6 @@
+---
+- hosts: sample
+  tasks: 
+   - service:
+      name: firewalld
+      state: stopped
