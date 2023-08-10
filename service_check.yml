@@ -1,5 +1,5 @@
 ---
-- hosts: sample
+- hosts: all
   tasks: 
    - service:
       name: firewalld
