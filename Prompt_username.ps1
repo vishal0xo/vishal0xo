@@ -1,11 +1,12 @@
 $server = Read-Host "Is this for a single server? (yes/no)"
-if ($singleServer -eq "yes") {
+if ($server -eq "yes") {
     $serverInput = Read-Host "Enter server name"
     $serverNames = $serverInput -split ','
 } else {
     $serverListFile = "C:\Scripts\Test_script\list.txt"
     $serverNames = Get-Content $serverListFile
 }
+
 foreach ($server in $serverNames) {
     Write-Output "Server Name: $server `n" 
 
