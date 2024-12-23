@@ -1,10 +1,10 @@
 $websites = @(
-    @{url="http://xxxxxxxxxxx/mobiledoc/jsp/webemr/login/newLogin.jsp"; content="Enter username to continue"},
-    @{url="http://xxxxxxxxxxx/mobiledoc/jsp/webemr/login/newLogin.jsp"; content="Enter username to continue"},
-    @{url="http://xxxxxxxxxxx/mobiledoc/jsp/webemr/login/newLogin.jsp"; content="Enter username to continue"},
-    @{url="http://xxxxxxxxxxx/mobiledoc/jsp/webemr/login/newLogin.jsp"; content="Enter username to continue"},
-    @{url="http://xxxxxxxxxxx/mobiledoc/jsp/webemr/login/newLogin.jsp"; content="Enter username to continue"},
-    @{url="http://xxxxxxxxxxx/mobiledoc/jsp/webemr/login/newLogin.jsp"; content="Enter username to continue"}
+    @{url="www.google.com"; content="Enter username to continue"},
+    #@{url="http://xxxxxxxxxxx/mobiledoc/jsp/webemr/login/newLogin.jsp"; content="Enter username to continue"},
+    #@{url="http://xxxxxxxxxxx/mobiledoc/jsp/webemr/login/newLogin.jsp"; content="Enter username to continue"},
+    #@{url="http://xxxxxxxxxxx/mobiledoc/jsp/webemr/login/newLogin.jsp"; content="Enter username to continue"},
+    #@{url="http://xxxxxxxxxxx/mobiledoc/jsp/webemr/login/newLogin.jsp"; content="Enter username to continue"},
+    #@{url="http://xxxxxxxxxxx/mobiledoc/jsp/webemr/login/newLogin.jsp"; content="Enter username to continue"}
 )
  
 foreach ($site in $websites) {
