@@ -1,5 +1,8 @@
 $websites = @(
     @{url="https://www.google.com/"; content="Google"}
+    @{url="https://www.zaubacorp.com/company/PINGSERV-SOLUTIONS-LLP/AAG-6493"; content="PINGSERV SOLUTIONS LLP"}
+    @{url="https://www.yahoo.com/"; content="yahoo!"}
+    
 )
  
 foreach ($site in $websites) {
