@@ -1,4 +1,3 @@
-# Define server-to-website mapping
 $serverWebsiteMap = @{
     "Server1" = @(@{url="https://www.google.com/"; content="Google"}),
     "Server2" = @(@{url="https://www.zaubacorp.com/company/PINGSERV-SOLUTIONS-LLP/AAG-6493"; content="PINGSERV SOLUTIONS LLP"}),
