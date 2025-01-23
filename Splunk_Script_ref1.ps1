@@ -1,7 +1,7 @@
-# Check if Splunk is installed
+# Check  installed
 $splunkInstalled = Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -like "Splunk*" }
 
-# Check if Splunk process is running
+# Check process is running
 $splunkProcessRunning = Get-Process -Name splunkd -ErrorAction SilentlyContinue
 
 # Output the results
