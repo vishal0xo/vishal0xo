@@ -1,0 +1,12 @@
+Top 10 Largest Files (in MB):
+
+C:\Users\vishal\VirtualBox VMs\vm\vm_1.vdi - 30722 MB
+C:\Windows\MEMORY.DMP - 1524.45 MB
+C:\Program Files\Google\Chrome\Application\132.0.6834.110\Installer\chrome.7z - 374.33 MB
+C:\Windows\Panther\setupact.log - 322.56 MB
+C:\Program Files (x86)\Microsoft\EdgeCore\132.0.2957.127\msedge.dll - 271.43 MB
+C:\Program Files (x86)\Microsoft\Edge\Application\132.0.2957.127\msedge.dll - 271.43 MB
+C:\Program Files (x86)\Microsoft\EdgeWebView\Application\132.0.2957.127\msedge.dll - 271.43 MB
+C:\Windows\WinSxS\amd64_microsoft-edge-webview_31bf3856ad364e35_10.0.26100.1_none_8fe1c356f34a19ca\msedge.dll - 251.35 MB
+C:\Windows\System32\Microsoft-Edge-WebView\msedge.dll - 251.35 MB
+C:\Program Files\Google\Chrome\Application\132.0.6834.110\chrome.dll - 231.85 MB
