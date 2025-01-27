@@ -5,7 +5,7 @@ $driveLetter = Read-Host -Prompt "Enter the drive letter you want to scan (e.g.,
 $topN = 10
 
 # Read the server names from the variable file
-$servers = Get-Content -Path "C:\path\to\servers.txt" # Replace with the actual path to the variable file
+$Hosts = Get-Content -Path "C:\path\to\List_host.txt" # Replace with the actual path to the variable file
 
 # Define the script block to run on the remote host
 $scriptBlock = {
@@ -21,7 +21,7 @@ $scriptBlock = {
 }
 
 # Loop through each server and run the script block
-foreach ($server in $servers) {
+foreach ($server in $Hosts) {
     # Define the output file path for each server
     $outputFilePath = "C:\scripts\TopLargestFiles_$server.txt"
 
