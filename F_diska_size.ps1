@@ -1,3 +1,8 @@
+#ServerName,DriveLetter
+#Server1,C:
+#Server2,D:
+#Server3,E:
+
 # Read the CSV file containing server names and drive letters
 $driveServerList = Import-Csv -Path "C:\path\to\drive_server_list.csv" # Replace with the actual path to your CSV file
 
@@ -34,3 +39,7 @@ foreach ($entry in $driveServerList) {
     # Confirm that the output has been written for each server
     Write-Output "The output has been written to $outputFilePath for server $server"
 }
+
+
+
+
