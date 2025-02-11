@@ -4,31 +4,41 @@ $outputFile = "C:\scripts\output.txt"
 # Read the server names from the file
 $servers = Get-Content -Path $serverListFile
 
+# Initialize a variable to hold the combined output
+$combinedOutput = @()
+
 # Loop through each server
 foreach ($server in $servers) {
-    # output for each server
-    $output = "Server: $server`n"
+    # Initialize output for each server
+    $output = "Server: $server |"
     
-    # Check installed
-    $splunkInstalled = Invoke-Command -ComputerName $server -ScriptBlock {
-        Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -like "Splunk*" }
+    # Check if Splunk is installed by checking the version file
+    $splunkVersion = Invoke-Command -ComputerName $server -ScriptBlock {
+        if (Test-Path "C:\Program Files\SplunkUniversalForwarder\etc\splunk.version") {
+            Get-Content "C:\Program Files\SplunkUniversalForwarder\etc\splunk.version"
+        } else {
+            $null
+        }
     }
-    if ($splunkInstalled) {
-        $output += "  Splunk is installed.`n"
+    if ($splunkVersion) {
+        $output += " Splunk is installed (Version: $splunkVersion) |"
     } else {
-        $output += "  Splunk is not installed.`n"
+        $output += " Splunk is not installed |"
     }
 
-    # Check process is running
+    # Check if Splunk process is running
     $splunkProcessRunning = Invoke-Command -ComputerName $server -ScriptBlock {
         Get-Process -Name splunkd -ErrorAction SilentlyContinue
     }
     if ($splunkProcessRunning) {
-        $output += "  Splunk process is running.`n"
+        $output += " Splunk process is running."
     } else {
-        $output += "  Splunk process is not running.`n"
+        $output += " Splunk process is not running."
     }
 
-    # Append output to file
-    $output | Out-File -FilePath $outputFile -Append
+    # Append the output for the current server to the combined output
+    $combinedOutput += $output
 }
+
+# Write the combined output to the file, each entry on a new line
+$combinedOutput | Out-File -FilePath $outputFile -Append
