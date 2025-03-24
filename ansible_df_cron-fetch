@@ -1,0 +1,41 @@
+---
+- name: Gather crontab and disk usage information from multiple servers
+  hosts: linux
+  become: yes
+  tasks:
+    - name: Gather hostname
+      command: hostname
+      register: hostname_output
+
+    - name: Gather IP address
+      command: hostname -I
+      register: ip_output
+
+    - name: Gather disk usage
+      command: df -hT | grep -e "cifs" -e "nfs" -e "tmpfs"
+      register: df_output
+	  ignore_errors: yes
+
+    - name: Check for crontab entries
+      shell: |
+        for user in $(cut -f1 -d: /etc/passwd); do
+          crontab -u $user -l
+        done
+      register: crontab_check
+      ignore_errors: yes
+
+    - name: Set fact if crontab and specific filesystems are present
+      set_fact:
+        has_crontab: "{{ crontab_check.stdout != '' }}"
+        has_filesystem: "{{ df_output.stdout != '' }}"
+
+    - name: Prepare output if conditions are met
+      set_fact:
+        output: |
+          {{ hostname_output.stdout }} | {{ ip_output.stdout }} | {{ df_output.stdout }} | {{ crontab_check.stdout }}
+      when: has_crontab and has_filesystem
+
+    - name: Save results to file on Ansible control machine
+      shell: echo "{{ output }}" | tee -a "smpl_file.txt"
+      delegate_to: localhost
+      when: has_crontab and has_filesystem
